@@ -56,6 +56,17 @@ public class testTaringa {
 
     }
 
+    @Test (priority = 2, testName= "Tercer test case")
+    public  void taringaBasicTest03() throws InterruptedException {
+        Driver = new driver();
+        Driver.goto_url("https://taringa.net");
+
+        landingTaringaPOM ltpom = new landingTaringaPOM();
+        ltpom.testTitle03(Driver);
+
+        System.out.println("Comentario insertado satisfactoriamente");
+
+    }
 
     @AfterClass
     public void teardown()

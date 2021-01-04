@@ -38,6 +38,13 @@ public class landingTaringaPOM {
                 "naturaleza, donde participan activamente los fenómeno de la naturaleza (lluvia,\n" +
                 "helada, granizo, tempestad).");
     }
+
+    public void testTitle03(driver dr)throws InterruptedException{
+        controlador =dr;
+
+        landingTaringaPage ltp = new landingTaringaPage(controlador);
+        ltp.runexample03("Fanny_024","Angel2408","El valor aportado de su trabajo es significativo");
+    }
 }
 
 

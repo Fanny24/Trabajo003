@@ -23,7 +23,7 @@ public class landingTaringaPage {
     @FindBy(xpath = "//*[@id=\"content\"]/div/div[5]/main/div/section/form/button")
     WebElement loginButton;
 
-    //adicional pa comprobar acceso despues de loguin
+    //adicional para comprobar acceso despues de loguin
     @FindBy(xpath = "//*[@id=\"content\"]/div/header/nav/div/div[2]/ul[2]/li[3]/span")
     WebElement AccesCorrecto;
 
@@ -46,8 +46,6 @@ public class landingTaringaPage {
     WebElement TextTitulo;
 
     @FindBy(xpath = "//*[@id=\"richPublisher\"]/div/div[2]/div/div/div/div/div/div/div/span")
-            //
-            ////*[@id="richPublisher"]/div/div[2]/div/div/div/div/div/div/div/span/span
     WebElement TextContenido;
 
     @FindBy(xpath = "//*[@id=\"content\"]/div/div[5]/main/div/aside/div[1]/div[2]/button[1]")
@@ -62,14 +60,35 @@ public class landingTaringaPage {
     @FindBy(xpath = "//*[@id=\"story-content\"]/div[1]/div/p")
     WebElement VerifContenido;
 
+    //acceder con google :(
     @FindBy(xpath = "//*[@id=\"content\"]/div/div[5]/main/div/section/form/div[6]/div[2]/button[1]")
     WebElement BtnGoogle;
 
-    //@FindBy(xpath = "//*[@id=\"richPublisher\"]/div/div[2]/div/div/div")
-   // WebElement extra;
-    //si es incorrecto
-   // @FindBy(xpath = "//*[@id=\"content\"]/div/div[5]/main/div/section/form/div[3]/div/span")
-   // WebElement noAccedeMsg;
+    @FindBy(xpath = "//*[@id=\"content\"]/div/div[5]/main/div[1]/section[1]/div[2]/div/section[1]/h2/div")
+    WebElement SeccionTops;
+
+    @FindBy(xpath = "//*[@id=\"content\"]/div/div[5]/main/div[1]/section[1]/div[2]/div/section[1]/div/div[4]")
+            ////*[@id="content"]/div/div[5]/main/div[1]/section[1]/div[2]/div/section[1]/div/div[4]
+    WebElement PestaniaMes;
+
+    @FindBy (xpath = "//*[@id=\"content\"]/div/div[5]/main/div[1]/section[1]/div[2]/div/section[1]/ul/li[1]/a/div[1]")
+    WebElement PrimerArtic;
+
+    @FindBy(xpath = "//*[@id=\"content\"]/div/div[5]/div/main/div[1]/section/div/div[2]/div/div[1]/div/textarea")
+    WebElement textComentario;
+
+    @FindBy(xpath = "//*[@id=\"content\"]/div/div[5]/div/main/div[1]/section/div/div[2]/div/div[2]/button")
+    WebElement BtnEnviarComent;
+
+    @FindBy(xpath = "//*[@id=\"content\"]/div/div[5]/div/main/div[1]/section/div/div[3]/div[1]/article/div[2]/div[2]/div[2]/div/div[1]/div[1]/button")
+    WebElement BtnUpvote;
+
+    @FindBy(xpath = "//*[@id=\"content\"]/div/div[5]/div/main/div[1]/section/div/div[3]/div[1]/article/div[2]/div[2]/div[2]/div/div[1]/div[1]/button/span")
+    WebElement NroVotos;
+
+    //si logueo es incorrecto
+    // @FindBy(xpath = "//*[@id=\"content\"]/div/div[5]/main/div/section/form/div[3]/div/span")
+    // WebElement noAccedeMsg;
 
     public landingTaringaPage(driver driver) {  //****agreg
         this.Driver = driver;
@@ -141,6 +160,58 @@ public class landingTaringaPage {
 
     }
 
+    public void runexample03(String username, String password, String comentario){
+        ingresarButton.click();
+        userTextbox.sendKeys(username);
+        passwordTextBox.sendKeys(password);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        loginButton.click();
+        System.out.println(AccesCorrecto.isDisplayed());
+        System.out.println(AccesCorrecto.getText());
+//3ra part
+        System.out.println(SeccionTops.isDisplayed());
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        PestaniaMes.click();
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        PrimerArtic.click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        textComentario.sendKeys(comentario);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        BtnEnviarComent.click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        BtnUpvote.click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(textComentario.getText());
+        System.out.println(NroVotos.getText());
 
+    }
 
 }
